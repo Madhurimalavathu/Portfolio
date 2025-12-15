@@ -621,66 +621,76 @@ nav a:hover {
   font-size: 1rem;
   margin-top: 10px;
 }
-/* Certifications & Achievements Section */
-.achievements {
-  padding: 100px 0;
+/* Achievements Diagram */
+.achievements-diagram {
+  text-align: center;
 }
 
-.achievements-list {
-  list-style: none;
-  max-width: 900px;
-  margin: 40px auto 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.diagram-wrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 80px auto 0;
 }
 
-.achievements-list li {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 18px 22px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+/* Center Trophy */
+.trophy-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  background: var(--accent);
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 15px;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  z-index: 5;
 }
 
-.section.dark .achievements-list li {
-  background: rgba(255, 255, 255, 0.1);
+.trophy-center i {
+  font-size: 3rem;
+  color: var(--primary);
+}
+
+/* Achievement Circles */
+.achievement-circle {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.section.dark .achievement-circle {
+  background: rgba(255,255,255,0.1);
   color: var(--text-light);
 }
 
-.achievements-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 5px;
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.3s ease;
+.achievement-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
-.achievements-list li:hover::before {
-  width: 100%;
-  opacity: 0.08;
-}
-
-.achievements-list li:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-}
-
-.achievements-list li i {
-  font-size: 1.4rem;
-  color: var(--accent);
-  min-width: 30px;
-}
+/* Positions (Circular Layout) */
+.pos-a { top: 0; left: 50%; transform: translateX(-50%); }
+.pos-b { top: 90px; right: 0; }
+.pos-c { bottom: 90px; right: 0; }
+.pos-d { bottom: 0; left: 50%; transform: translateX(-50%); }
+.pos-e { bottom: 90px; left: 0; }
+.pos-f { top: 90px; left: 0; }
 
 .contact-form button i {
   margin-left: 10px;
@@ -839,12 +849,24 @@ footer i {
 }
 /* Responsive */
 @media (max-width: 768px) {
-  .achievements {
-    padding: 70px 0;
+  .diagram-wrapper {
+    width: 300px;
+    height: 300px;
   }
 
-  .achievements-list {
-    grid-template-columns: 1fr;
+  .achievement-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 0.7rem;
+  }
+
+  .trophy-center {
+    width: 90px;
+    height: 90px;
+  }
+
+  .trophy-center i {
+    font-size: 2.3rem;
   }
 }
 
